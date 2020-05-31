@@ -8,6 +8,7 @@ public class MouseClickEvents : MonoBehaviour {
 	public int mouseButton;
 	public UnityEvent eventOnMouseButton;
 	public UnityEvent eventOnMouseButtonDown;
+	public UnityEvent eventOnMouseButtonUp;
 	
 	// Update is called once per frame
 	void Update () {
@@ -16,6 +17,9 @@ public class MouseClickEvents : MonoBehaviour {
 		}
 		if(Input.GetMouseButton(mouseButton)){
 			eventOnMouseButton.Invoke();
+		}
+		if(Input.GetMouseButtonUp(mouseButton)){
+			eventOnMouseButtonUp.Invoke();
 		}
 	}
 }

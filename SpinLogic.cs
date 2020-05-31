@@ -34,12 +34,12 @@
 	 // Update is called once per frame
 	 void Update () 
 	 {
-		 if (Input.GetMouseButtonDown(1))
+		 if (Input.GetMouseButtonDown(0))
 		 {
 			 f_difX = 0.0f;
 			 f_difY = 0.0f;
 		 }
-		 else if (Input.GetMouseButton(1))
+		 else if (Input.GetMouseButton(0))
 		 {
 			 f_difX = Mathf.Abs(f_lastX - Input.GetAxis ("Mouse X"));
  
