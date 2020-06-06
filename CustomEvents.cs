@@ -86,3 +86,7 @@ public class AudiosourceEvent : UnityEvent<AudioSource>
 public class IEnumeratorEvent: UnityEvent<IEnumerator>{
 	
 }
+[System.Serializable]
+public class GameObjectVector3Event : UnityEvent<GameObject,Vector3>{
+	
+}

@@ -11,6 +11,7 @@ public class RaycastContol : MonoBehaviour
 	public class RaycastEvent{
 		public GameObjectEvent GameObjectEvent;
 		public Vector3Event PositionEvent;
+		public GameObjectVector3Event GameObjectPositionEvent;
 		//public LayerMask LayerMask;
 	}
 	
@@ -24,8 +25,9 @@ public class RaycastContol : MonoBehaviour
 			{
 				raycast.onRaycasted.GameObjectEvent.Invoke(hit.collider.gameObject);
 				raycast.onRaycasted.PositionEvent.Invoke(hit.point);
+				raycast.onRaycasted.GameObjectPositionEvent.Invoke(hit.collider.gameObject,hit.point);
 				
-				Debug.Log("hit " + name);
+				Debug.Log("hit " + name,hit.collider.gameObject);
 				//onRaycasted.Invoke();
 			}
 		}
