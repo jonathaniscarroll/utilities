@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class RaycastContol : MonoBehaviour
 {
 	public RaycastEvent onRaycasted;
+	public Vector3Event OutputRaycastPoint;
 	
 	[System.Serializable]
 	public class RaycastEvent{
@@ -26,7 +27,7 @@ public class RaycastContol : MonoBehaviour
 				raycast.onRaycasted.GameObjectEvent.Invoke(hit.collider.gameObject);
 				raycast.onRaycasted.PositionEvent.Invoke(hit.point);
 				raycast.onRaycasted.GameObjectPositionEvent.Invoke(hit.collider.gameObject,hit.point);
-				
+				OutputRaycastPoint.Invoke(hit.point);
 				Debug.Log("hit " + name,hit.collider.gameObject);
 				//onRaycasted.Invoke();
 			}

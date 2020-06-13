@@ -15,12 +15,15 @@ public class AddExplosionToObject : ScriptableObject
 		
 	}
 	public float RateOfIncrease = 1;
+	public GameObject ExplosionPrefab;
+	
 	
 	public void TriggerFunction(GameObject gameObject,Vector3 point){
 		Rigidbody rigidbody;
 		if(rigidbody=gameObject.GetComponent<Rigidbody>()){
 			rigidbody.AddExplosionForce(ForceToAdd,point,1);
 		}
+
 	}
 	
 	public void IncreaseForce(){

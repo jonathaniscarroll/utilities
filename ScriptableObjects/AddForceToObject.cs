@@ -22,7 +22,7 @@ public class AddForceToObject : GameObjectFunction
 			target=gameObject.transform;
 		}
 		if(rigidbody=gameObject.GetComponent<Rigidbody>()){
-			rigidbody.AddForce((target.transform.position - gameObject.transform.position).normalized * ForceToAdd,ForceMode.Impulse);
+			rigidbody.AddForce((target.transform.position - gameObject.transform.position).normalized * ForceToAdd,ForceMode.Force);
 			//rigidbody.AddExplosionForce(ForceToAdd,)
 		}
 	}
