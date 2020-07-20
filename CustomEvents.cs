@@ -71,7 +71,13 @@ public class FloatStringEvent : UnityEvent<string,float>
 }
 
 [System.Serializable]
-public class TextureEvent : UnityEvent<Texture2D>
+public class Texture2DEvent : UnityEvent<Texture2D>
+{
+
+}
+
+[System.Serializable]
+public class TextureEvent : UnityEvent<Texture>
 {
 
 }
