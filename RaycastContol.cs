@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class RaycastContol : MonoBehaviour
 {
+	public Transform TransformToRaycastFrom;
 	public RaycastEvent onRaycasted;
 	public Vector3Event OutputRaycastPoint;
 	
@@ -18,7 +19,12 @@ public class RaycastContol : MonoBehaviour
 	
 	public void SendRaycast(){
 		RaycastHit hit;
+		//Physics.Raycast (cam.position, cam.forward, hit, 500)
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if(TransformToRaycastFrom!=null){
+			ray = new Ray(TransformToRaycastFrom.position, TransformToRaycastFrom.forward);
+		}
+		
 		if(Physics.Raycast (ray, out hit))
 		{
 			RaycastContol raycast;
