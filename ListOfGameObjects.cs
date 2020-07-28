@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ListOfGameObjects : MonoBehaviour
 {
@@ -18,5 +19,18 @@ public class ListOfGameObjects : MonoBehaviour
 	public GameObjectListEvent gameObjectListEvent;
 	public void OutputList(){
 		gameObjectListEvent.Invoke(GameObjectList);
+	}
+	
+	public GameObjectEvent IteratedGameObject;
+	public UnityEvent OnIterationComplete;
+	
+	public void IterateList(int iterator){
+		if(iterator<GameObjectList.Count){
+			Debug.Log(GameObjectList[iterator].name + " " + iterator) ;
+			IteratedGameObject.Invoke(GameObjectList[iterator]);
+		} else {
+			OnIterationComplete.Invoke();
+		}
+			
 	}
 }
