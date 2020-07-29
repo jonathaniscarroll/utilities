@@ -18,7 +18,7 @@ public class ObjectPool : MonoBehaviour
 		}
 		
 		foreach(GameObject go in GameObjectPool){
-			if(!go.active){
+			if(!go.activeInHierarchy){
 				output = go;
 				output.SetActive(true);
 				output.transform.position = spawnPoint;
