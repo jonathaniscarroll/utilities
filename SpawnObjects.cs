@@ -19,6 +19,7 @@ public class SpawnObjects : MonoBehaviour
 	public float spawnRange;
 	public Transform parent;
 	public Transform spawnAround;
+	public bool RandomizeRotation;
 	public UnityEvent eventOnComplete;
 	
 	public void Spawn(){
@@ -27,7 +28,12 @@ public class SpawnObjects : MonoBehaviour
 			int randomObject = Random.Range(0,possibleObjects.Count-1);
 			Vector3 randomRotation = new Vector3(0,Random.Range(0,4) * 90,0);
 			Vector3 position = spawnAround.position + (Random.onUnitSphere * spawnRange);
-			GameObject newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.Euler(randomRotation),parent);
+			if(RandomizeRotation){
+				GameObject newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.Euler(randomRotation),parent);	
+			} else {
+				GameObject newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.identity,parent);
+			}
+			
 		}
 		eventOnComplete.Invoke();
 	}
