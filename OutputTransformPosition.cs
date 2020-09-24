@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class OutputTransformPosition : MonoBehaviour
 {
-	public Transform transformToOutput;
+	public Transform TransformToOutput{
+		get {
+			return _output;
+		}
+		set {
+			_output = value;
+		}
+	}
+	[SerializeField]
+	private Transform _output;
+	
 	public Vector3Event vector3Event;
 	public void Output(){
-		vector3Event.Invoke(transformToOutput.position);
-		Debug.Log("transform event ",gameObject);
+		vector3Event.Invoke(TransformToOutput.position);
 	}
 }

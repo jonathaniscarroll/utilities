@@ -96,3 +96,7 @@ public class IEnumeratorEvent: UnityEvent<IEnumerator>{
 public class GameObjectVector3Event : UnityEvent<GameObject,Vector3>{
 	
 }
+[System.Serializable]
+public class StringStringEvent : UnityEvent<string,string>{
+	
+}
