@@ -8,8 +8,12 @@ public class ToggleEvent : MonoBehaviour
 	[SerializeField]
 	private bool state;
 	public bool State{
-		get;
-		set;
+		get{
+			return state;
+		}set{
+			state = value;
+			CheckState();
+		}
 	}
 	
 	public UnityEvent trueEvent;
