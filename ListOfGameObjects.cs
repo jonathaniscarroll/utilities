@@ -38,4 +38,11 @@ public class ListOfGameObjects : MonoBehaviour
 		}
 			
 	}
+	
+	public void IterateAllObects(){
+		foreach(GameObject obj in GameObjectList){
+			IteratedGameObject.Invoke(obj);
+		}
+		OnIterationComplete.Invoke();
+	}
 }
