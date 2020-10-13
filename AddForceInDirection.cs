@@ -20,4 +20,8 @@ public class AddForceInDirection : MonoBehaviour
 	public void OutputForce(){
 		TargetRigidbody.AddForce(Direction.Value * Force.Value);
 	}
+	
+	public void SetDirection(Vector3 direction){
+		Direction.ConstantValue = direction;
+	}
 }

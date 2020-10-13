@@ -20,9 +20,14 @@ public class ListOfGameObjects : MonoBehaviour
 	public void OutputList(){
 		gameObjectListEvent.Invoke(GameObjectList);
 	}
+	public void CountList(){
+		OutputCount.Invoke(GameObjectList.Count);
+	}
 	
 	public GameObjectEvent IteratedGameObject;
 	public UnityEvent OnIterationComplete;
+	public IntEvent OutputCount;
+	
 	
 	public void IterateList(int iterator){
 		if(iterator<GameObjectList.Count){
