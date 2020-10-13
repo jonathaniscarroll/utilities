@@ -37,4 +37,5 @@ public class SpawnObjects : MonoBehaviour
 		}
 		eventOnComplete.Invoke();
 	}
+	
 }
