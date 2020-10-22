@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomFloat : MonoBehaviour
 {
-	[MinMaxSlider(0,1000)]
+	[MinMaxSlider(-1000,1000)]
 	public Vector2 range;
 	public FloatEvent outputFloat;
 	public void Generate(){
