@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MicrophoneInput : MonoBehaviour
 {
+	#if UNITY_IOS || UNITY_ANDROID || UNITY_EDITOR || UNITY_STANDALONE
 	void Start(){
 		int s =0;
 		foreach(string i in Microphone.devices){
@@ -51,4 +52,5 @@ public class MicrophoneInput : MonoBehaviour
 		Microphone.End(Microphone.devices[device]);
 		//playbackSource.Stop();
 	}
+	#endif
 }
