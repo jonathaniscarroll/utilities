@@ -18,7 +18,7 @@ public class StringReference
 	public string Value
 	{
 		get { return UseConstant ? ConstantValue : Variable.Value; }
-		set{ConstantValue = value; Variable.Value = value;}
+		set{if(UseConstant)ConstantValue = value; else Variable.Value = value;}
 	}
 
 	public static implicit operator string(StringReference reference)

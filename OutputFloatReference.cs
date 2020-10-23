@@ -5,8 +5,12 @@ using UnityEngine;
 public class OutputFloatReference : MonoBehaviour
 {
 	public FloatReference FloatReference;
+	public bool round;
 	public FloatEvent OutputFloat;
 	public void Output(){
-		OutputFloat.Invoke(FloatReference.Value);
+		float output = FloatReference.Value;
+		if(round)
+			output = Mathf.Round(output);
+		OutputFloat.Invoke(output);
 	}
 }
