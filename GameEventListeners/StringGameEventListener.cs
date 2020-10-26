@@ -5,8 +5,14 @@ using UnityEngine.Events;
 
 public class StringGameEventListener : MonoBehaviour
 {
+	
 	public StringGameEvent Event;
+	public string Prepend;
+	public string Append;
 	public StringEvent Response;
+	
+	
+	
 	
 	private void OnEnable(){
 		Event.RegisterListener(this);
@@ -15,6 +21,6 @@ public class StringGameEventListener : MonoBehaviour
 		Event.UnRegisterListener(this);
 	}
 	public void OnEventRaised(string input){
-		Response.Invoke(input);
+		Response.Invoke(Prepend+input+Append);
 	}
 }
