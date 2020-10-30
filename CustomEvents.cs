@@ -100,3 +100,7 @@ public class GameObjectVector3Event : UnityEvent<GameObject,Vector3>{
 public class StringStringEvent : UnityEvent<string,string>{
 	
 }
+[System.Serializable]
+public class StringStringDictionaryEvent : UnityEvent<Dictionary<string,string>>{
+	
+}
