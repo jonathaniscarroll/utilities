@@ -7,7 +7,7 @@ public class FloatGameEvent : ScriptableObject
 {
 	private List<FloatGameEventListener> listeners = new List<FloatGameEventListener>();
 	public void Raise(float input){
-		Debug.Log(name);
+		//Debug.Log(name);
 		for(int i = listeners.Count-1;i>=0;i--){
 			listeners[i].OnEventRaised(input);
 		}

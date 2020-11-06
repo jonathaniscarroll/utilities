@@ -8,27 +8,31 @@ public class FloatOperation : MonoBehaviour
 	public Operation operation;
 	public FloatReference OperatorFloat;
 	public FloatEvent OutputFloat;
-	public void InputFloat(FloatVar input){
+	public void InputFloat(float input){
 		float output = 0;
 		switch (operation)
 		{
 		case Operation.plus:
-			output = input.Value + OperatorFloat.Value;
+			output = input + OperatorFloat.Value;
 			break;
 		case Operation.minus:
-			output = input.Value - OperatorFloat.Value;
+			output = input - OperatorFloat.Value;
 			break;
 		case Operation.divide:
-			output = input.Value / OperatorFloat.Value;
+			output = input / OperatorFloat.Value;
 			break;
 		case Operation.multiply:
-			output = input.Value * OperatorFloat.Value;
+			output = input * OperatorFloat.Value;
 			break;
 		case Operation.percentage:
-			output = input.Value % OperatorFloat.Value;
+			output = input % OperatorFloat.Value;
 			break;
 		}
 		OutputFloat.Invoke(output);
+	}
+	
+	public void SetOperator(float input){
+		OperatorFloat.Value = input;
 	}
 	
 }

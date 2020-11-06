@@ -104,3 +104,7 @@ public class StringStringEvent : UnityEvent<string,string>{
 public class StringStringDictionaryEvent : UnityEvent<Dictionary<string,string>>{
 	
 }
+[System.Serializable]
+public class ObjectEvent : UnityEvent<object>{
+	
+}
