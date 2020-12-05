@@ -15,6 +15,15 @@ public class StringVar : ScriptableObject
 		}
 	}
 	
+	public string InitialValue;
+	public bool UseInitialValue;
+	
 	public StringEvent OnChange;
+	
+	void Awake(){
+		if(UseInitialValue){
+			Value = InitialValue;
+		}
+	}
 	
 }

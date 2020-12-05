@@ -30,7 +30,7 @@ public class NamedStringReferenceList : ScriptableObject
 	public void SetValues(Dictionary<string,string> input){
 		foreach(NamedStringReference nsr in NamedStringReferences){
 			if(input.ContainsKey(nsr.Name)){
-				Debug.Log(input[nsr.Name] + " " + nsr.StringReference.Value);
+				//Debug.Log(input[nsr.Name] + " " + nsr.StringReference.Value);
 				nsr.StringReference.Value = input[nsr.Name];
 			}
 		}
