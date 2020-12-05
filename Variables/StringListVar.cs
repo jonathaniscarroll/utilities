@@ -12,13 +12,34 @@ public class StringListVar : ScriptableObject
 			return _value;
 		} set{
 			_value = value;
+			StringListEvent.Invoke(_value);
+		}
+	}
+	[SerializeField]
+	private int _iteratorInteger;
+	public int IteratorInteger{
+		get{
+			return _iteratorInteger;
+		} set{
+			_iteratorInteger = value;
 		}
 	}
 	
-	public StringListGameEvent StringListEvent;
+	public StringListEvent StringListEvent;
+	public StringEvent IterateStringListOutput;
 	
 	public void Add(string input){
 		Value.Add(input);
+	}
+	
+	public void Iterate(){
+		if(IteratorInteger<Value.Count){
+			string output = Value[IteratorInteger];
+			IterateStringListOutput.Invoke(output);
+			IteratorInteger++;
+		} else {
+			IteratorInteger = 0;
+		}
 	}
 	
 }
