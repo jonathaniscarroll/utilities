@@ -13,4 +13,7 @@ public class OutputFloatReference : MonoBehaviour
 			output = Mathf.Round(output);
 		OutputFloat.Invoke(output);
 	}
+	public void Set(float input){
+		FloatReference.Value = input;
+	}
 }
