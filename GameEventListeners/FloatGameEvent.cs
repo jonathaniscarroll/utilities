@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Events/FloatGameEvent")]
 public class FloatGameEvent : ScriptableObject
 {
 	private List<FloatGameEventListener> listeners = new List<FloatGameEventListener>();

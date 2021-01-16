@@ -8,6 +8,8 @@ public class OutputStringDictionary : MonoBehaviour
 		get;
 		set;
 	}
+	[SerializeField]
+	private Dictionary<string,string> _dictionaryToOutput;
 	
 	public StringStringDictionaryEvent DictionaryEvent;
 	

@@ -34,7 +34,7 @@ public class RaycastContol : MonoBehaviour
 				raycast.onRaycasted.PositionEvent.Invoke(hit.point);
 				raycast.onRaycasted.GameObjectPositionEvent.Invoke(hit.collider.gameObject,hit.point);
 				OutputRaycastPoint.Invoke(hit.point);
-				Debug.Log("hit " + name,hit.collider.gameObject);
+				//Debug.Log("hit " + name,hit.collider.gameObject);
 				//onRaycasted.Invoke();
 			}
 		}

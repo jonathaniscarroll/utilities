@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Events/TextureGameEvent")]
 public class TextureGameEvent : ScriptableObject
 {
 	private List<TextureGameEventListener> listeners = new List<TextureGameEventListener>();

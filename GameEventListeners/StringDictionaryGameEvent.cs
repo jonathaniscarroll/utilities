@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Events/StringDictionaryGameEvent")]
 public class StringDictionaryGameEvent : ScriptableObject
 {
 	private List<StringDictionaryGameEventListener> listeners = new List<StringDictionaryGameEventListener>();

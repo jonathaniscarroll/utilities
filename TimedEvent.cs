@@ -25,15 +25,20 @@ public class TimedEvent : MonoBehaviour
 		StartCoroutine(coroutine);
 	}
 	
+	public void StopTimer(){
+		StopCoroutine(coroutine);
+	}
+	
     IEnumerator Timed()
     {
         while (true)
         {
-            float time = Random.Range(range.x, range.y);
+	        float time = Random.Range(range.x, range.y);
+	        //Debug.Log(time);
             yield return new WaitForSeconds(time);
             eventToTime.Invoke();
 	        if(!loop){
-	        	Debug.Log("stiop");
+	        	//Debug.Log("stiop");
 	        	yield break;
 	        }
         }

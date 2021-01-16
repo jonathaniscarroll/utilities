@@ -21,6 +21,17 @@ public class UserController : MonoBehaviour
 	
 	[SerializeField]
 	private string _user;
+	
+	public string UserID{
+		get{return _userID;}
+		set{
+			_userID = value;
+			OutputUserID.Invoke(_userID);
+		}
+	}
+	
+	[SerializeField]
+	private string _userID;
 
 	public string Message{
 		get{return _message;}
@@ -39,11 +50,13 @@ public class UserController : MonoBehaviour
 		foreach(UserCommand cmd in UserCommands){
 			if(message.Contains(cmd.CommandName)){
 				command = cmd;
-				Debug.Log("contains " + message);
+				//Debug.Log("contains " + message);
 				string[] str = message.Split(char.Parse(" "));
 				if(str.Length>1){
+					for(int i = 1;i<str.Length;i++){
+						argument += str[i];	
+					}
 					
-					argument = str[1];	
 				}
 				
 			}
@@ -56,11 +69,14 @@ public class UserController : MonoBehaviour
 			//do command
 			//Debug.Log("function " + command.CommandName + " argument " + argument);
 			command.Command.Invoke(argument);
+			OutputCommand.Invoke(command.CommandName+ " " +argument);
 		}
 		
 	}
 	
 	public StringEvent OutputName;
+	public StringEvent OutputUserID;
 	public StringEvent OutputMessage;
+	public StringEvent OutputCommand;
 	public List<UserCommand> UserCommands;
 }
