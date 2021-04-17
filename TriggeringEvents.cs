@@ -18,7 +18,7 @@ public class TriggeringEvents : MonoBehaviour
 		foreach(TriggerEvent te in triggerEvents){
 			if(te.trigger==Trigger.OnTriggerEnter){
 				if(te.triggeringTags.Contains(other.tag)){
-					//Debug.Log("trigger event on enter",gameObject);
+					Debug.Log("trigger event on enter",gameObject);
 					te.eventToTrigger.Invoke(other.gameObject);
 				}
 			}

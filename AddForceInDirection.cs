@@ -24,4 +24,8 @@ public class AddForceInDirection : MonoBehaviour
 	public void SetDirection(Vector3 direction){
 		Direction.ConstantValue = direction;
 	}
+	
+	public void SetForce(float force){
+		Force.Value = force;
+	}
 }

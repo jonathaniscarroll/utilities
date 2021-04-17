@@ -15,6 +15,7 @@ public class ListOfGameObjects : MonoBehaviour
 			gameObjectList = value;
 		}
 	}
+	public int AmountToRandomlyOutput;
 	
 	public GameObjectListEvent gameObjectListEvent;
 	public void OutputList(){
@@ -44,5 +45,21 @@ public class ListOfGameObjects : MonoBehaviour
 			IteratedGameObject.Invoke(obj);
 		}
 		OnIterationComplete.Invoke();
+	}
+	
+	public void CreateListFromTag(string tag){
+		GameObjectList = new List<GameObject>(GameObject.FindGameObjectsWithTag(tag));
+	}
+	
+	public void IterateRandomObjects(){
+		List<GameObject> output = new List<GameObject>();
+		float random = Random.Range(0,AmountToRandomlyOutput);
+		Debug.Log("random " +random);
+		for (int i = 0; i < random; i++)
+		{
+			output.Add(GameObjectList[Random.Range(0,GameObjectList.Count)]);
+                 
+		}
+		gameObjectListEvent.Invoke(output);
 	}
 }

@@ -5,7 +5,12 @@ using UnityEngine.Events;
 
 public class SetPosition : MonoBehaviour
 {
-	public Transform TargetTransform;
+	public Transform TargetTransform{
+		get {return _targetTransform;}
+		set{_targetTransform = value;}
+	}
+	[SerializeField]
+	private Transform _targetTransform;
 	public Vector3 Offset;
 	public UnityEvent OnMove;
 	

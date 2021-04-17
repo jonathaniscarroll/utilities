@@ -19,8 +19,9 @@ public class LookAtTarget : MonoBehaviour
 	void Update(){
 		//transform.LookAt(Target.position);
 		if(Target!=null){
+			//Debug.Log(Target.name);
 			Vector3 dir = Target.position - transform.position;
-			dir.y = 0; // keep the direction strictly horizontal
+			//dir.y = 0; // keep the direction strictly horizontal
 			Quaternion rot = Quaternion.LookRotation(dir);
 			// slerp to the desired rotation over time
 			transform.rotation = Quaternion.Slerp(transform.rotation, rot, Time.deltaTime);
