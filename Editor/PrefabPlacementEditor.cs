@@ -26,6 +26,7 @@ public class PrefabPlacementEditor : Editor {
     private SerializedProperty isRandomR;
 	private SerializedProperty hideInHierarchy;
 	private SerializedProperty parent;
+	private SerializedProperty objectCount;
 
     private Vector3 lastPos;
     private Vector3 mousePos;
@@ -52,6 +53,7 @@ public class PrefabPlacementEditor : Editor {
         isRandomR = serializedObject.FindProperty("isRandomR");
 	    hideInHierarchy = serializedObject.FindProperty("hideInHierarchy");
 	    parent = serializedObject.FindProperty("parent");
+	    objectCount = serializedObject.FindProperty("objectCount");
     }
 
     public override void OnInspectorGUI()
@@ -82,6 +84,7 @@ public class PrefabPlacementEditor : Editor {
         EditorGUILayout.PropertyField (isRandomR, new GUIContent ("Randomize Rotation"));
 	    EditorGUILayout.PropertyField(hideInHierarchy, new GUIContent ("Hide in Hierarchy"));
 	    EditorGUILayout.PropertyField(parent,new GUIContent("Parent"));
+	    EditorGUILayout.PropertyField(objectCount,new GUIContent("Object Count"));
 
         serializedObject.ApplyModifiedProperties();
     }
@@ -149,12 +152,15 @@ public class PrefabPlacementEditor : Editor {
 
 	public int ObjectCount;
     public void PrefabInstantiate (int index)
-    {
+	{
+		ObjectCount = objectCount.intValue;
         RaycastHit hit;
 	    GameObject instanceOf = PrefabUtility.InstantiatePrefab(prefab.GetArrayElementAtIndex(index).objectReferenceValue) as GameObject;
 	    instanceOf.transform.parent = parent.objectReferenceValue as Transform;
 	    instanceOf.name += ObjectCount;
-	    ObjectCount++;
+		ObjectCount++;
+		objectCount.intValue = ObjectCount;
+		serializedObject.ApplyModifiedProperties();
         Vector3 radiusAdjust = Random.insideUnitSphere * radius.floatValue / 2;
         float prefabSize = size.floatValue;
         

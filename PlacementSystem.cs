@@ -22,4 +22,5 @@ public class PlacementSystem : MonoBehaviour {
     public bool isRandomR;
 	public bool hideInHierarchy;
 	public Transform parent;
+	public int objectCount;
 }
