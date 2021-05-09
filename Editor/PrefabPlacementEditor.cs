@@ -24,7 +24,8 @@ public class PrefabPlacementEditor : Editor {
     private SerializedProperty canAling;
     private SerializedProperty isRandomS;
     private SerializedProperty isRandomR;
-    private SerializedProperty hideInHierarchy;
+	private SerializedProperty hideInHierarchy;
+	private SerializedProperty parent;
 
     private Vector3 lastPos;
     private Vector3 mousePos;
@@ -49,7 +50,8 @@ public class PrefabPlacementEditor : Editor {
         canAling = serializedObject.FindProperty("canAling");
         isRandomS = serializedObject.FindProperty("isRandomS");
         isRandomR = serializedObject.FindProperty("isRandomR");
-        hideInHierarchy = serializedObject.FindProperty("hideInHierarchy");
+	    hideInHierarchy = serializedObject.FindProperty("hideInHierarchy");
+	    parent = serializedObject.FindProperty("parent");
     }
 
     public override void OnInspectorGUI()
@@ -78,7 +80,8 @@ public class PrefabPlacementEditor : Editor {
         EditorGUILayout.DelayedFloatField(positionOffset, new GUIContent("yOffset"));
         EditorGUILayout.PropertyField(isRandomS, new GUIContent("Randomize Size"));
         EditorGUILayout.PropertyField (isRandomR, new GUIContent ("Randomize Rotation"));
-        EditorGUILayout.PropertyField(hideInHierarchy, new GUIContent ("Hide in Hierarchy"));
+	    EditorGUILayout.PropertyField(hideInHierarchy, new GUIContent ("Hide in Hierarchy"));
+	    EditorGUILayout.PropertyField(parent,new GUIContent("Parent"));
 
         serializedObject.ApplyModifiedProperties();
     }
@@ -144,11 +147,12 @@ public class PrefabPlacementEditor : Editor {
         }
     }
 
-	public int ObjectCount = 0;
+	public int ObjectCount;
     public void PrefabInstantiate (int index)
     {
         RaycastHit hit;
 	    GameObject instanceOf = PrefabUtility.InstantiatePrefab(prefab.GetArrayElementAtIndex(index).objectReferenceValue) as GameObject;
+	    instanceOf.transform.parent = parent.objectReferenceValue as Transform;
 	    instanceOf.name += ObjectCount;
 	    ObjectCount++;
         Vector3 radiusAdjust = Random.insideUnitSphere * radius.floatValue / 2;
