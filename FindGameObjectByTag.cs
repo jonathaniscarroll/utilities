@@ -6,7 +6,8 @@ public class FindGameObjectByTag : MonoBehaviour
 {
 	public GameObjectEvent OutputGameObject;
 	public void InputTag(string input){
-		GameObject output = GameObject.FindGameObjectWithTag(input);
+		List<GameObject> gameObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag(input));
+		GameObject output = gameObjects[Random.Range(0,gameObjects.Count)];
 		OutputGameObject.Invoke(output);
 	}
 }
