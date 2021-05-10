@@ -52,7 +52,7 @@ public class UserController : MonoBehaviour
 				command = cmd;
 				
 				string[] str = message.Split(char.Parse(" "));
-				Debug.Log("contains " + message + " LEN " + str.Length);
+				//Debug.Log("contains " + message + " LEN " + str.Length);
 				//if(str.Length==2){
 				//	for(int i = 1;i<str.Length;i++){
 				//		argument += str[i];	
@@ -72,7 +72,7 @@ public class UserController : MonoBehaviour
 			
 		} else {
 			//do command
-			Debug.Log("function " + command.CommandName + " argument " + argument);
+			//Debug.Log("function " + command.CommandName + " argument " + argument);
 			command.Command.Invoke(argument);
 			OutputCommand.Invoke(command.CommandName+ " " +argument);
 		}

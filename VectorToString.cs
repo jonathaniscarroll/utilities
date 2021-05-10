@@ -14,7 +14,7 @@ public class VectorToString : MonoBehaviour
 	}
 	
 	public void InputString(string input){
-		Debug.Log("V3 " +input);
+		//Debug.Log("V3 " +input);
 		Vector3 output = stringToVec(input);
 		OutputVector3.Invoke(output);
 	}
