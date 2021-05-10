@@ -27,10 +27,7 @@ public class OutputStringFloatEvent : MonoBehaviour
 	[SerializeField]
 	private float _float;
 	
-	[System.Serializable]
-	public class StringFloatEvent:UnityEvent<string,float>{
-		
-	}
+	
 	
 	public StringFloatEvent EventToOutput;
 	
