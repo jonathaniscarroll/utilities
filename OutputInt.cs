@@ -12,4 +12,7 @@ public class OutputInt : MonoBehaviour
 	public void Set(int input){
 		IntReference.Value = input;
 	}
+	public void InputFloat(float input){
+		IntReference.Value = Mathf.RoundToInt(input);
+	}
 }
