@@ -16,6 +16,7 @@ public class SeparateString : MonoBehaviour
 	public StringListEvent OutputSeparatedStrings;
 	
 	public void InputString(string input){
+		Debug.Log("parse str input " + input);
 		string[] str = input.Split(char.Parse(ParseString));
 		List<string> output = new List<string>(str);
 		OutputSeparatedStrings.Invoke(output);

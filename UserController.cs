@@ -50,15 +50,20 @@ public class UserController : MonoBehaviour
 		foreach(UserCommand cmd in UserCommands){
 			if(message.Contains(cmd.CommandName)){
 				command = cmd;
-				//Debug.Log("contains " + message);
-				string[] str = message.Split(char.Parse(" "));
-				if(str.Length>1){
-					for(int i = 1;i<str.Length;i++){
-						argument += str[i];	
-					}
-					
-				}
 				
+				string[] str = message.Split(char.Parse(" "));
+				Debug.Log("contains " + message + " LEN " + str.Length);
+				//if(str.Length==2){
+				//	for(int i = 1;i<str.Length;i++){
+				//		argument += str[i];	
+				//	}
+				//}
+				//else {
+					for(int i = 1;i<str.Length-1;i++){
+						argument += str[i] + " ";	
+					}
+					argument += str[str.Length-1];
+				//}
 			}
 		}
 		if(command == null){
@@ -67,7 +72,7 @@ public class UserController : MonoBehaviour
 			
 		} else {
 			//do command
-			//Debug.Log("function " + command.CommandName + " argument " + argument);
+			Debug.Log("function " + command.CommandName + " argument " + argument);
 			command.Command.Invoke(argument);
 			OutputCommand.Invoke(command.CommandName+ " " +argument);
 		}
