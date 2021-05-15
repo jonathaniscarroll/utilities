@@ -72,7 +72,7 @@ public class UserController : MonoBehaviour
 			
 		} else {
 			//do command
-			//Debug.Log("function " + command.CommandName + " argument " + argument);
+			Debug.Log("function " + command.CommandName + " argument " + argument,gameObject);
 			command.Command.Invoke(argument);
 			OutputCommand.Invoke(command.CommandName+ " " +argument);
 		}

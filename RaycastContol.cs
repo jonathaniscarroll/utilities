@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class RaycastContol : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class RaycastContol : MonoBehaviour
 	}
 	
 	public void SendRaycast(){
+		if(EventSystem.current.IsPointerOverGameObject()){
+			return;
+		}
 		RaycastHit hit;
 		//Physics.Raycast (cam.position, cam.forward, hit, 500)
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

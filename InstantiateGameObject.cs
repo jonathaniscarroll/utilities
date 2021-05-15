@@ -37,11 +37,13 @@ public class InstantiateGameObject : MonoBehaviour
 	public GameObjectEvent OutputInstantiatedGameobject;
 	
 	public void Instantiate(){
+		GameObject output;
 		if(Parent!=null){
-			GameObject output = Instantiate(ObjectToInstantiate,Position,Quaternion.identity,Parent);	
+			output = Instantiate(ObjectToInstantiate,Position,Quaternion.identity,Parent);	
 		} else {
-			GameObject output = Instantiate(ObjectToInstantiate,Position,Quaternion.identity);
+			output = Instantiate(ObjectToInstantiate,Position,Quaternion.identity);
 		}
+		OutputInstantiatedGameobject.Invoke(output);
 		
 	}
 }
