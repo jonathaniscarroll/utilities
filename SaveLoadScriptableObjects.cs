@@ -12,7 +12,7 @@ public class SaveLoadScriptableObjects : MonoBehaviour
 	public bool usePersistency = true;
 	[Header("Scriptable Objects")]
 	public List<ScriptableObject> objectsToPersist;
-	
+	public StringEvent OutputJSON;
 	
 	protected void OnEnable()
 	{
@@ -33,30 +33,31 @@ public class SaveLoadScriptableObjects : MonoBehaviour
 		}
 	}
 	
-	public void Save(){
+	public void Save( List<ScriptableObject> input){
 		//Debug.Log("saving ");
-		for (int i = 0; i < objectsToPersist.Count; i++) 
+		for (int i = 0; i < input.Count; i++) 
 		{
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}_{1}.pso", persisterName, i ));
-			var json = JsonUtility.ToJson(objectsToPersist[i]);
+			var json = JsonUtility.ToJson(input[i]);
+			Debug.Log(json);
 			bf.Serialize(file, json);
 			file.Close();
 		}
 	}
-	protected void OnDisable()
-	{
+	//protected void OnDisable()
+	//{
 		
-		Save();
-	}
+	//	Save();
+	//}
 	
-	void OnApplicationPause(){
-		Save();
-	}
+	//void OnApplicationPause(){
+	//	Save();
+	//}
 	
-	void OnAppliationQuit(){
-		Save();
-	}
+	//void OnAppliationQuit(){
+	//	Save();
+	//}
 	
 	public void DeleteProgress(){
 		for (int i = 0; i < objectsToPersist.Count; i++) 

@@ -18,6 +18,7 @@ public class OutputGameObjectEvent : MonoBehaviour
 	public GameObjectEvent GameObjectEvent;
 	
 	public void Output(){
+		
 		GameObjectEvent.Invoke(GameObjectToOutput);
 	}
 }

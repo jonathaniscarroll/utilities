@@ -11,7 +11,7 @@ public class FindGameObject : MonoBehaviour
 		
 		GameObject output = GameObject.Find(input);
 		if(output!=null){
-			//Debug.Log("found " + input);
+			Debug.Log("found " + input);
 			OutputGameObject.Invoke(output);	
 		} else {
 			EventOnFindFail.Invoke();

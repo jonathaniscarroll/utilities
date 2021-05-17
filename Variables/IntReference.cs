@@ -18,7 +18,7 @@ public class IntReference
 	public int Value
 	{
 		get { return UseConstant ? ConstantValue : Variable.Value; }
-		set{ConstantValue = value; Variable.Value = value;}
+		set{if(UseConstant)ConstantValue = value; if(!UseConstant)Variable.Value = value;}
 	}
 
 	public static implicit operator int(IntReference reference)

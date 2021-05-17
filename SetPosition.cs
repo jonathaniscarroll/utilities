@@ -12,8 +12,9 @@ public class SetPosition : MonoBehaviour
 	[SerializeField]
 	private Transform _targetTransform;
 	public Vector3 Offset;
-	public UnityEvent OnMove;
 	public bool LocalPosition;
+	public UnityEvent OnMove;
+	
 	
 	public void InputVector3(Vector3 input){
 		if(LocalPosition){

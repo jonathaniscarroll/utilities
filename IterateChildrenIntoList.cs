@@ -20,6 +20,7 @@ public class IterateChildrenIntoList : MonoBehaviour
 	public void OutputChildrenList(){
 		List<GameObject> gameObjectList = new List<GameObject>();
 		foreach(Transform t in TargetTransform.GetComponentsInChildren<Transform>()){
+			if(t!=TargetTransform)
 			gameObjectList.Add(t.gameObject);
 			//Debug.Log(t.name);
 		}

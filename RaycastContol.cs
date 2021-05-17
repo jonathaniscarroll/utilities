@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class RaycastContol : MonoBehaviour
 {
 	public Transform TransformToRaycastFrom;
+	public Camera CameraToRaycastFrom;
 	public RaycastEvent onRaycasted;
 	public Vector3Event OutputRaycastPoint;
 	
@@ -19,7 +20,9 @@ public class RaycastContol : MonoBehaviour
 	}
 	
 	public void SendRaycast(){
+		
 		if(EventSystem.current.IsPointerOverGameObject()){
+			Debug.Log("sending RC hit UI");
 			return;
 		}
 		RaycastHit hit;
@@ -28,9 +31,13 @@ public class RaycastContol : MonoBehaviour
 		if(TransformToRaycastFrom!=null){
 			ray = new Ray(TransformToRaycastFrom.position, TransformToRaycastFrom.forward);
 		}
+		if(CameraToRaycastFrom!=null){
+			ray = CameraToRaycastFrom.ScreenPointToRay(Input.mousePosition);
+		}
 		
 		if(Physics.Raycast (ray, out hit))
 		{
+			Debug.Log("sending RC hit " + hit.transform.gameObject,hit.transform.gameObject);
 			RaycastContol raycast;
 			if(raycast=hit.collider.GetComponent<RaycastContol>())
 			{
