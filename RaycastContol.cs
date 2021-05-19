@@ -22,7 +22,7 @@ public class RaycastContol : MonoBehaviour
 	public void SendRaycast(){
 		
 		if(EventSystem.current.IsPointerOverGameObject()){
-			Debug.Log("sending RC hit UI");
+			//Debug.Log("sending RC hit UI");
 			return;
 		}
 		RaycastHit hit;
@@ -37,7 +37,7 @@ public class RaycastContol : MonoBehaviour
 		
 		if(Physics.Raycast (ray, out hit))
 		{
-			Debug.Log("sending RC hit " + hit.transform.gameObject,hit.transform.gameObject);
+			//Debug.Log("sending RC hit " + hit.transform.gameObject,hit.transform.gameObject);
 			RaycastContol raycast;
 			if(raycast=hit.collider.GetComponent<RaycastContol>())
 			{
