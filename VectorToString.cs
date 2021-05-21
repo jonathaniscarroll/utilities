@@ -20,7 +20,7 @@ public class VectorToString : MonoBehaviour
 	}
 	
 	public Vector3 stringToVec(string s) {
-		Debug.Log("string " + s);
+		//Debug.Log("string " + s);
 		string[] temp = s.Substring (1, s.Length-2).Split (',');
 		return new Vector3 (float.Parse(temp[0]), float.Parse(temp[1]), float.Parse(temp[2]));
 	}
