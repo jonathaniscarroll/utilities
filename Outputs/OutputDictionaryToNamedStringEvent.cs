@@ -15,6 +15,7 @@ public class OutputDictionaryToNamedStringEvent : MonoBehaviour
 	public void InputDictionary(Dictionary<string,string> input){
 		foreach(NamedStringEvent nse in NamedStringEvents){
 			if(input.ContainsKey(nse.Name)){
+				//Debug.Log(nse.Name + " " + input[nse.Name]);
 				nse.StringEvent.Invoke(input[nse.Name]);
 			}
 		}

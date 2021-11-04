@@ -12,10 +12,16 @@ public class SetPosition : MonoBehaviour
 	[SerializeField]
 	private Transform _targetTransform;
 	public Vector3 Offset;
+	public bool LocalPosition;
 	public UnityEvent OnMove;
 	
+	
 	public void InputVector3(Vector3 input){
-		TargetTransform.transform.position = input + Offset;
+		if(LocalPosition){
+			TargetTransform.transform.localPosition = input + Offset;
+		} else {
+			TargetTransform.transform.position = input + Offset;	
+		}
 		OnMove.Invoke();
 	}
 }

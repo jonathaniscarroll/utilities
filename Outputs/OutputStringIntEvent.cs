@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OutputStringFloatEvent : MonoBehaviour
+public class OutputStringIntEvent : MonoBehaviour
 {
 	public string String{
 		get{
@@ -16,25 +16,25 @@ public class OutputStringFloatEvent : MonoBehaviour
 	[SerializeField]
 	private string _string;
 	
-	public float Float{
+	public int Int{
 		get{
-			return _float;
+			return _int;
 		}
 		set{
-			_float = value;
+			_int = value;
 		}
 	}
 	[SerializeField]
-	private float _float;
+	private int _int;
 	
 	[System.Serializable]
-	public class StringFloatEvent:UnityEvent<string,float>{
+	public class StringIntEvent:UnityEvent<string,int>{
 		
 	}
 	
-	public StringFloatEvent EventToOutput;
+	public StringIntEvent EventToOutput;
 	
 	public void Output(){
-		EventToOutput.Invoke(String,Float);
+		EventToOutput.Invoke(String,Int);
 	}
 }

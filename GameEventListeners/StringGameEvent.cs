@@ -7,9 +7,10 @@ public class StringGameEvent : ScriptableObject
 {
 	private List<StringGameEventListener> listeners = new List<StringGameEventListener>();
 	public void Raise(string input){
-		//Debug.Log(name + " " + input);
+		
 		for(int i = listeners.Count-1;i>=0;i--){
 			listeners[i].OnEventRaised(input);
+			//Debug.Log(name + " " + input,listeners[i].gameObject);
 		}
 	}
 	public void RegisterListener(StringGameEventListener listener){

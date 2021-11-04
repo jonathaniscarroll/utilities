@@ -16,6 +16,7 @@ public class MouseClickEvents : MonoBehaviour {
 			eventOnMouseButtonDown.Invoke();
 		}
 		if(Input.GetMouseButton(mouseButton)){
+			//Debug.Log("on mouse button");
 			eventOnMouseButton.Invoke();
 		}
 		if(Input.GetMouseButtonUp(mouseButton)){

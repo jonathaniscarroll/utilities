@@ -29,7 +29,7 @@ public class ToggleEvent : MonoBehaviour
 	
 	public void CheckState(){
 		if(State){
-			Debug.Log(gameObject.name,gameObject);
+			//Debug.Log(gameObject.name,gameObject);
 			trueEvent.Invoke();
 		} else {
 			falseEvent.Invoke();

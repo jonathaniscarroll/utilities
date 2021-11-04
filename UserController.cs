@@ -43,22 +43,46 @@ public class UserController : MonoBehaviour
 	[SerializeField]
 	private string _message;
 	
+	[SerializeField]
+	private float currency;
+	public float Currency{
+		get {
+			return currency;
+		}set{
+			//Debug.Log("currency was "  +currency+" currency is " + value);
+			OutputCurrencyChangeAmount.Invoke(value - currency);
+			currency = value;
+			
+			OutputCurrency.Invoke(currency);
+		}
+	}
+	
+	void Start(){
+		OutputCurrency.Invoke(Currency);
+	}
+	
 	public void InputMessage(string message){
-		
+		//Debug.Log(message,gameObject);
 		string argument = "";
 		UserCommand command = null;
 		foreach(UserCommand cmd in UserCommands){
 			if(message.Contains(cmd.CommandName)){
 				command = cmd;
-				//Debug.Log("contains " + message);
-				string[] str = message.Split(char.Parse(" "));
-				if(str.Length>1){
-					for(int i = 1;i<str.Length;i++){
-						argument += str[i];	
-					}
-					
-				}
 				
+				string[] str = message.Split(char.Parse(" "));
+				//Debug.Log("contains " + message + " LEN " + str.Length);
+				//if(str.Length==2){
+				//	for(int i = 1;i<str.Length;i++){
+				//		argument += str[i];	
+				//	}
+				//}
+				//else {
+					for(int i = 1;i<str.Length-1;i++){
+						argument += str[i] + " ";	
+					}
+				argument += str[str.Length-1];
+				//Debug.Log("argument " + argument,gameObject);
+				//}
 			}
 		}
 		if(command == null){
@@ -67,7 +91,7 @@ public class UserController : MonoBehaviour
 			
 		} else {
 			//do command
-			//Debug.Log("function " + command.CommandName + " argument " + argument);
+			//Debug.Log("function " + command.CommandName + " argument " + argument,gameObject);
 			command.Command.Invoke(argument);
 			OutputCommand.Invoke(command.CommandName+ " " +argument);
 		}
@@ -78,5 +102,7 @@ public class UserController : MonoBehaviour
 	public StringEvent OutputUserID;
 	public StringEvent OutputMessage;
 	public StringEvent OutputCommand;
+	public FloatEvent OutputCurrency;
+	public FloatEvent OutputCurrencyChangeAmount;
 	public List<UserCommand> UserCommands;
 }

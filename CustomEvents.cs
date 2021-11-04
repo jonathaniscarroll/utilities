@@ -108,3 +108,25 @@ public class StringStringDictionaryEvent : UnityEvent<Dictionary<string,string>>
 public class ObjectEvent : UnityEvent<object>{
 	
 }
+[System.Serializable]
+public class StringFloatEvent:UnityEvent<string,float>{
+	
+}
+[System.Serializable]
+public class ColorEvent:UnityEvent<Color>{
+	
+}
+[System.Serializable]
+public class RaycastHitEvent:UnityEvent<RaycastHit>{
+	
+}
+[System.Serializable]
+public class Vector3ListEvent:UnityEvent<List<Vector3>>{
+	
+}
+[System.Serializable]
+public class SpriteRendererEvent:UnityEvent<SpriteRenderer>{}
+[System.Serializable]
+public class SpriteEvent:UnityEvent<Sprite>{}
+[System.Serializable]
+public class AnimatorControllerEvent:UnityEvent<RuntimeAnimatorController>{}

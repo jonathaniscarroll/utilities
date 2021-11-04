@@ -16,4 +16,6 @@ public class OutputStringDictionary : MonoBehaviour
 	public void Output(){
 		DictionaryEvent.Invoke(DictionaryToOutput);
 	}
+	
+	
 }

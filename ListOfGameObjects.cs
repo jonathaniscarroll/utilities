@@ -22,6 +22,7 @@ public class ListOfGameObjects : MonoBehaviour
 		gameObjectListEvent.Invoke(GameObjectList);
 	}
 	public void CountList(){
+		//Debug.Log("count " + GameObjectList.Count);
 		OutputCount.Invoke(GameObjectList.Count);
 	}
 	
@@ -32,7 +33,7 @@ public class ListOfGameObjects : MonoBehaviour
 	
 	public void IterateList(int iterator){
 		if(iterator<GameObjectList.Count){
-			Debug.Log(GameObjectList[iterator].name + " " + iterator) ;
+			//Debug.Log(GameObjectList[iterator].name + " " + iterator) ;
 			IteratedGameObject.Invoke(GameObjectList[iterator]);
 		} else {
 			OnIterationComplete.Invoke();
@@ -61,5 +62,19 @@ public class ListOfGameObjects : MonoBehaviour
                  
 		}
 		gameObjectListEvent.Invoke(output);
+	}
+	
+	public void Add(GameObject input){
+		GameObjectList.Add(input);
+	}
+	
+	public TransformListEvent TransformListEvent;
+	
+	public void OutputTransformList(){
+		List<Transform> transformList = new List<Transform>();
+		foreach(GameObject go in GameObjectList){
+			transformList.Add(go.transform);
+		}
+		TransformListEvent.Invoke(transformList);
 	}
 }

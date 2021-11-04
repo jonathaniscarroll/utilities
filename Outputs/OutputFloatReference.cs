@@ -16,4 +16,7 @@ public class OutputFloatReference : MonoBehaviour
 	public void Set(float input){
 		FloatReference.Value = input;
 	}
+	public void InputInt(int input){
+		FloatReference.Value = input;
+	}
 }

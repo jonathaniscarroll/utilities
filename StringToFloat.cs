@@ -8,6 +8,9 @@ public class StringToFloat : MonoBehaviour
 	
 	public FloatEvent OutputFloat;
 	
+	public void SetStringValue(string input){
+		StringReference.Value = input;
+	}
 	public void Output(){
 		float output = float.Parse(StringReference.Value);
 		OutputFloat.Invoke(output);

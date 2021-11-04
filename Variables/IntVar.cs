@@ -14,7 +14,10 @@ public class IntVar : ScriptableObject
 			OnChange.Invoke(_value);
 		}
 	}
-	
-	public IntEvent OnChange;
+	[SerializeField]
+	private IntEvent onChange;
+	public IntEvent OnChange{
+		get{return onChange;}set{onChange = value;}
+	}
 	
 }

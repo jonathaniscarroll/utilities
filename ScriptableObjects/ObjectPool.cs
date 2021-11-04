@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class ObjectPool : MonoBehaviour
 {
-	public GameObject Prefab;
+	public GameObject Prefab{
+		get;set;
+	}
 	
 	public List<GameObject> GameObjectPool;
 	

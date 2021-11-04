@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 public class StringTriggeredEvents : MonoBehaviour
 {
@@ -12,9 +13,15 @@ public class StringTriggeredEvents : MonoBehaviour
 	}
 	
 	public List<StringCommand> StringCommands;
+	public UnityEvent CommandNotFound;
 	
 	public void InputCommand(string commandName){
-		StringCommand command = StringCommands.FirstOrDefault(i => i.CommandName == commandName);
-		command.Command.Invoke(commandName);
+		Debug.Log(commandName);
+		if(StringCommands.Find(i => i.CommandName == commandName)!=null){
+			StringCommand command = StringCommands.FirstOrDefault(i => i.CommandName == commandName);
+			command.Command.Invoke(commandName);
+		} else {
+			CommandNotFound.Invoke();
+		}
 	}
 }

@@ -17,6 +17,7 @@ public class OutputTransformPosition : MonoBehaviour
 	
 	public Vector3Event vector3Event;
 	public void Output(){
+		//Debug.Log(TransformToOutput.position);
 		vector3Event.Invoke(TransformToOutput.position);
 	}
 }

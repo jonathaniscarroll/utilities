@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class LifeCycleTriggerEvents : MonoBehaviour
 {
 	[System.Serializable]
@@ -16,6 +17,7 @@ public class LifeCycleTriggerEvents : MonoBehaviour
 	void Start(){
 		foreach(TriggerEvent te in triggerEvents){
 			if(te.trigger==TriggerTime.Start){
+				//Debug.Log("trigger",gameObject);
 				te.eventToTrigger.Invoke();
 			}	
 		}
@@ -24,6 +26,7 @@ public class LifeCycleTriggerEvents : MonoBehaviour
 	void Awake(){
 		foreach(TriggerEvent te in triggerEvents){
 			if(te.trigger==TriggerTime.Awake){
+				//Debug.Log("invoking");
 				te.eventToTrigger.Invoke();
 			}	
 		}

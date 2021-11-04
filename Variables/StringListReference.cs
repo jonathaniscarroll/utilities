@@ -19,7 +19,7 @@ public class StringListReference
 	public List<string> Value
 	{
 		get { return UseConstant ? ConstantValue : Variable.Value; }
-		set{ConstantValue = value; Variable.Value = value;}
+		set{if(UseConstant)ConstantValue = value; if(!UseConstant)Variable.Value = value;}
 	}
 
 	public static implicit operator List<string>(StringListReference reference)

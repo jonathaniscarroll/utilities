@@ -30,4 +30,7 @@ public class FloatConditional : MonoBehaviour
 		}
 		ConditionEvent.Invoke(output);
 	}
+	public void SetConditional(float input){
+		ConditionFloat.Value = input;
+	}
 }

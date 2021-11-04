@@ -14,12 +14,13 @@ public class SpawnObjects : MonoBehaviour
 	}
 	[SerializeField]
 	private List<GameObject> PossibleObjects;
-	[MinMaxSlider(0,1000)]
+	[MinMaxSlider(0,10000)]
 	public Vector2 quantityRange;
 	public float spawnRange;
 	public Transform parent;
 	public Transform spawnAround;
 	public bool RandomizeRotation;
+	public GameObjectEvent OutputSpawned;
 	public UnityEvent eventOnComplete;
 	
 	public void Spawn(){
@@ -28,11 +29,13 @@ public class SpawnObjects : MonoBehaviour
 			int randomObject = Random.Range(0,possibleObjects.Count-1);
 			Vector3 randomRotation = new Vector3(0,Random.Range(0,4) * 90,0);
 			Vector3 position = spawnAround.position + (Random.onUnitSphere * spawnRange);
+			GameObject newObject;
 			if(RandomizeRotation){
-				GameObject newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.Euler(randomRotation),parent);	
+				newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.Euler(randomRotation),parent);	
 			} else {
-				GameObject newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.identity,parent);
+				newObject = Instantiate(possibleObjects[randomObject],position,Quaternion.identity,parent);
 			}
+			OutputSpawned.Invoke(newObject);
 			
 		}
 		eventOnComplete.Invoke();

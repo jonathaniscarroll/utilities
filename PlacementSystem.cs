@@ -20,5 +20,7 @@ public class PlacementSystem : MonoBehaviour {
     public bool canAling;
     public bool isRandomS;
     public bool isRandomR;
-    public bool hideInHierarchy;
+	public bool hideInHierarchy;
+	public Transform parent;
+	public int objectCount;
 }
