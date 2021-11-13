@@ -9,7 +9,7 @@ public class VectorSamplePosition : MonoBehaviour {
 	public Vector3Event vectorEventOnComplete;
 	
 	public void Invoke(Vector3 input){
-		Vector3 randomPoint = input + -Vector3.up;
+		Vector3 randomPoint = navMeshAgent.transform.position + input + -Vector3.up;
 		NavMeshHit hit;
 		Vector3 result = input;
 		if (NavMesh.SamplePosition(randomPoint, out hit, 3.0f, NavMesh.AllAreas))

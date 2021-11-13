@@ -41,6 +41,16 @@ public class ListOfGameObjects : MonoBehaviour
 			
 	}
 	
+	int iterator = 0;
+	public void IterateSingleObject(){
+		IteratedGameObject.Invoke(GameObjectList[iterator]);
+		if(iterator<GameObjectList.Count-1){
+			iterator++;
+		} else {
+			iterator = 0;		
+		}
+	}
+	
 	public void IterateAllObects(){
 		foreach(GameObject obj in GameObjectList){
 			IteratedGameObject.Invoke(obj);
