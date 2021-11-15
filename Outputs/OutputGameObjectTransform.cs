@@ -9,6 +9,7 @@ public class OutputGameObjectTransform : MonoBehaviour
 			return _output;
 		}
 		set{
+			Debug.Log("setting go",gameObject);
 			_output = value;
 		}
 	}

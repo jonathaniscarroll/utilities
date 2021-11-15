@@ -15,14 +15,13 @@ public class DistanceDecision : Decision
 
     private bool Compare(StateController controller)
 	{
-		//Debug.Log("distance " + Vector3.Distance(controller.navMeshAgent.transform.position, controller.navMeshAgent.destination) + " " + controller.navMeshAgent.destination);
-		if(controller.navMeshAgent.destination==null){
+		if(controller.TargetTransform==null){
 			return false;
 		}
-	    if (Vector3.Distance(controller.navMeshAgent.transform.position, controller.navMeshAgent.destination) < minimumDistance)
+		float Distance = Vector3.Distance(controller.transform.position, controller.TargetTransform.position);
+		
+		if ( Distance<= minimumDistance)
         {
-
-            //controller.hasASowTarget = false;
             return true;
 
         }

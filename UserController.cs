@@ -87,6 +87,7 @@ public class UserController : MonoBehaviour
 		}
 		if(command == null){
 			//do message
+			//Debug.Log("message " + message);
 			OutputMessage.Invoke(message);
 			
 		} else {

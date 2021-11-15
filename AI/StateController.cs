@@ -7,22 +7,27 @@ public class StateController : MonoBehaviour
 {
     public State currentState;
     public State remainState;
-	public NavMeshAgent navMeshAgent;
+	//public NavMeshAgent navMeshAgent;
 	public StateVariables StateVariables;
 
 	public UserController userController;
 
-	public Vector3 TargetPosition{
-		get;
-		set;
-	}
+	//public Vector3 TargetPosition{
+	//	get;
+	//	set;
+	//}
 	public Transform TargetTransform{
-		get;
-		set;
+		get{return targetTransform;}
+		set{targetTransform = value;
+			OnTargetChanged.Invoke(targetTransform);
+		}
 	}
+	[SerializeField]
+	private Transform targetTransform;
+	public TransformEvent OnTargetChanged;
 
     // Update is called once per frame
-    void Update()
+	public void UpdateState()
     {
         currentState.UpdateState(this);
     }

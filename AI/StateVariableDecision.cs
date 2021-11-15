@@ -15,13 +15,13 @@ public class StateVariableDecision : Decision
 		bool outcome = false;
 		switch (compare){
 		case Compare.Greater:
-			outcome = controller.StateVariables.GetFloat(StateToCheck) > Threshold;
+			outcome = controller.StateVariables.GetInt(StateToCheck) > Threshold;
 			break;
 		case Compare.Lesser:
-			outcome = controller.StateVariables.GetFloat(StateToCheck) < Threshold;
+			outcome = controller.StateVariables.GetInt(StateToCheck) < Threshold;
 			break;
 		}
-		Debug.Log("worked" + outcome);
+		//Debug.Log("worked" + outcome);
 		return outcome;
 	}
 }

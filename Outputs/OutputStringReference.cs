@@ -9,4 +9,7 @@ public class OutputStringReference : MonoBehaviour
 	public void Output(){
 		OutputString.Invoke(StringReference.Value);
 	}
+	public void Set(string input){
+		StringReference.Value = input;
+	}
 }

@@ -17,9 +17,19 @@ public class TransformMoveToward : MonoBehaviour
 	}
 	[SerializeField]
 	private Transform _targetToMoveToward;
-	public float Speed;
+	public float Speed{
+		get{
+			return speed;
+		}
+		set{
+			speed = value;
+		}
+	}
+	[SerializeField]
+	private float speed = 1;
 	
 	public void MoveToward(){
+		if(TargetToMove!=null&&TargetToMoveToward!=null)
 		TargetToMove.position = Vector3.MoveTowards(TargetToMove.position,TargetToMoveToward.position,Speed*Time.deltaTime);
 	}
 }
