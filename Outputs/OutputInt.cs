@@ -15,4 +15,7 @@ public class OutputInt : MonoBehaviour
 	public void InputFloat(float input){
 		IntReference.Value = Mathf.RoundToInt(input);
 	}
+	public void Increment(int amount){
+		IntReference.Value+=amount;
+	}
 }

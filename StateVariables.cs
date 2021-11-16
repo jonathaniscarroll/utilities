@@ -29,14 +29,17 @@ public class StateVariables : MonoBehaviour
 				return _value;
 			}
 			set{
-				_value = value;
-				Debug.Log("int " + _value);
-				OutputInt.Invoke(_value);
+				if(value>=Min){
+					_value = value;
+				}
+				//Debug.Log("int " + _value);
+				OutputIntEvent.Invoke(_value);
 			}
 		}
 		[SerializeField]
 		private int _value;
-		public IntEvent OutputInt;
+		public int Min = 0;
+		public IntEvent OutputIntEvent;
 	}
 	
 	public List<StateFloat> StateFloats;
@@ -56,5 +59,12 @@ public class StateVariables : MonoBehaviour
 	public int GetInt(string key){
 		Debug.Log("looking for " + key);
 		return StateIntegers.FirstOrDefault(i=>i.Name==key).Value;
+	}
+	public void SetInt(string key,int value){
+		StateIntegers.FirstOrDefault(i=>i.Name==key).Value=value;
+	}
+	public void OutputInt(string key){
+		StateInteger output = StateIntegers.FirstOrDefault(i=>i.Name==key);
+		output.OutputIntEvent.Invoke(output.Value);
 	}
 }
