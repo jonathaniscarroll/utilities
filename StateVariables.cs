@@ -49,7 +49,7 @@ public class StateVariables : MonoBehaviour
 		StateFloats.FirstOrDefault(i => i.Name == key).Value+=amount;
 	}
 	public void IncrementInteger(string key,int amount){
-		Debug.Log("incrementing " + key + " ");
+		//Debug.Log("incrementing " + key + " ");
 		StateIntegers.FirstOrDefault(i=>i.Name==key).Value+=amount;
 	}
 	public float GetFloat(string key){
@@ -57,7 +57,7 @@ public class StateVariables : MonoBehaviour
 		return StateFloats.FirstOrDefault(i => i.Name == key).Value;
 	}
 	public int GetInt(string key){
-		Debug.Log("looking for " + key);
+		//Debug.Log("looking for " + key);
 		return StateIntegers.FirstOrDefault(i=>i.Name==key).Value;
 	}
 	public void SetInt(string key,int value){

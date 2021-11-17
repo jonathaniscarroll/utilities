@@ -15,7 +15,8 @@ public class LoadScene : MonoBehaviour
 	public bool Activate{
 		get;set;
 	}
-	public StringEvent OutputLoadProgress;
+	public StringEvent OutputLoadProgressText;
+	public FloatEvent OutputLoadProgressFloat;
 	public StringEvent OnLoadComplete;
 	public void Load(){
 		SceneManager.LoadScene(SceneName);
@@ -30,7 +31,7 @@ public class LoadScene : MonoBehaviour
 		//Begin to load the Scene you specify
 		AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
 		//Don't let the Scene activate until you allow it to
-		//asyncOperation.allowSceneActivation = false;
+		asyncOperation.allowSceneActivation = false;
 		Debug.Log("Pro :" + asyncOperation.progress);
 		string text;
 		//When the load is still in progress, output the Text and progress bar
@@ -38,7 +39,8 @@ public class LoadScene : MonoBehaviour
 		{
 			//Output the current progress
 			text = "Loading progress: " + (asyncOperation.progress * 100) + "%";
-			OutputLoadProgress.Invoke(text);
+			OutputLoadProgressText.Invoke(text);
+			OutputLoadProgressFloat.Invoke(asyncOperation.progress);
 		
 			// Check if the load has finished
 			if (asyncOperation.progress >= 0.9f)

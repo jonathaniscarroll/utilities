@@ -14,6 +14,8 @@
 	 public float MaximumX;
 	 public float MinimumX;
 	 private Quaternion xRotationQuaternion;
+	 public FloatEvent OutputX;
+	 public FloatEvent OutputY;
  
 	 Quaternion ClampRotationAroundXAxis(Quaternion q)
 	 {
@@ -57,6 +59,7 @@
 			 }
  
 			 f_lastX = -Input.GetAxis ("Mouse X");
+			 OutputX.Invoke(f_difX);
 			 
 			 
 			 
@@ -77,6 +80,7 @@
 			 }
  
 			 f_lastY = -Input.GetAxis ("Mouse Y");
+			 OutputY.Invoke(f_difY);
 			 //xRotationQuaternion = ClampRotationAroundXAxis(transform.rotation);
 			 //transform.rotation = xRotationQuaternion;
 			 //Vector3 currentRotation = transform.localRotation.eulerAngles;
@@ -92,5 +96,6 @@
  
 			 //transform.Rotate(Vector3.up, f_difX * i_direction);
 		 }
+		 
 	 }
  }

@@ -40,7 +40,7 @@ public class SaveLoadScriptableObjects : MonoBehaviour
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Create(Application.persistentDataPath + string.Format("/{0}_{1}.pso", persisterName, i ));
 			var json = JsonUtility.ToJson(input[i]);
-			Debug.Log(json);
+			//Debug.Log(json);
 			bf.Serialize(file, json);
 			file.Close();
 		}

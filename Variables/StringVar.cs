@@ -11,6 +11,7 @@ public class StringVar : ScriptableObject
 		get{return _value;}
 		set{
 			_value = value;
+			Debug.Log("changed " + name + " " + _value);
 			OnChange.Invoke(_value);
 		}
 	}

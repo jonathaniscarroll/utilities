@@ -35,6 +35,16 @@ public class StringDictionary : ScriptableObject
 		Debug.Log(debug);
 		Dictionary.Add(key,value);
 	}
+	public void UpdateKeyValue(string key, string value){
+		if(Dictionary==null){
+			Dictionary = new Dictionary<string, string>();
+		}
+		if(Dictionary.ContainsKey(key)){
+			Dictionary[key] = value;
+		} else {
+			Dictionary.Add(key,value);
+		}
+	}
 	
 	public void OutputDictionary(){
 		DictionaryEvent.Invoke(Dictionary);

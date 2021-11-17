@@ -42,4 +42,10 @@ public class StringListVar : ScriptableObject
 		}
 	}
 	
+	public StringEvent OutputRandomEvent;
+	public void OutputRandom(){
+		string output = Value[Random.Range(0,Value.Count)];
+		OutputRandomEvent.Invoke(output);
+	}
+	
 }

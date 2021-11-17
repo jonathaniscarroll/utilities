@@ -1,0 +1,26 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[CreateAssetMenu(menuName = "Sets/DictionaryObject")]
+public class DictionaryObjectRuntimeSet : RuntimeSet<DictionaryObject>
+{
+	public string CompareKey;
+	public DictionaryObject DictionaryObjectPrefab;
+	public GameObjectEvent OutputGameObject;
+	public void InputDictionary(Dictionary<string,string> input){
+		DictionaryObject dictionaryObject = new DictionaryObject();
+		//if exists
+		if(dictionaryObject = Items.Find(f => f.Dictionary[CompareKey] == input[CompareKey])){
+			//exists
+			
+		} else {
+			dictionaryObject = Instantiate(DictionaryObjectPrefab);
+			Items.Add(dictionaryObject);
+		}
+		
+		dictionaryObject.Dictionary = input;
+		OutputGameObject.Invoke(dictionaryObject.gameObject);
+		
+		
+	}
+}

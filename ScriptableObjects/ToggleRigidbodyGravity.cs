@@ -8,7 +8,7 @@ public class ToggleRigidbodyGravity : GameObjectFunction
 		get;set;
 	}
 	public override void TriggerFunction(GameObject gameObject){
-		Debug.Log(gameObject.name,gameObject);
+		//Debug.Log(gameObject.name,gameObject);
 		Rigidbody rigidBody;
 		if(rigidBody=gameObject.GetComponent<Rigidbody>()){
 			rigidBody.useGravity = stateToSet;
