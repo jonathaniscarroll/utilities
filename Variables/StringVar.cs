@@ -19,7 +19,11 @@ public class StringVar : ScriptableObject
 	public string InitialValue;
 	public bool UseInitialValue;
 	
-	public StringEvent OnChange;
+	public StringEvent OnChange{
+		get{Debug.Log("changing!");return onChange;}set{onChange = value;Debug.Log("changing!");}
+	}
+	[SerializeField]
+	private StringEvent onChange;
 	
 	void Awake(){
 		if(UseInitialValue){

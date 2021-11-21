@@ -8,12 +8,12 @@ public class StringDictionary : ScriptableObject
 	{
 		get
 		{
-			//Debug.Log("getting");
+			Debug.Log("getting dict");
 			return _dictionary;
 		}
 		set
 		{
-			//Debug.Log("setting");
+			Debug.Log("setting dict");
 			_dictionary= value;
 		}
 	}

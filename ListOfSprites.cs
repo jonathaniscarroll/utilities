@@ -20,4 +20,10 @@ public class ListOfSprites : MonoBehaviour
 		int output = Sprites.Count;
 		OutputCountEvent.Invoke(output);
 	}
+	public void GetSpriteFromName(string input){
+		Sprite output = Sprites.Find(s=>s.name == input);
+		if(output!=null){
+			OutputSprite.Invoke(output);
+		}
+	}
 }

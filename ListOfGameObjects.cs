@@ -15,7 +15,10 @@ public class ListOfGameObjects : MonoBehaviour
 			gameObjectList = value;
 		}
 	}
-	public int AmountToRandomlyOutput;
+
+	//public int AmountToRandomlyOutput;
+	[MinMaxSlider(0,100)]
+	public Vector2 RangeToRandomlyOutput;
 	
 	public GameObjectListEvent gameObjectListEvent;
 	public void OutputList(){
@@ -64,11 +67,13 @@ public class ListOfGameObjects : MonoBehaviour
 	
 	public void IterateRandomObjects(){
 		List<GameObject> output = new List<GameObject>();
-		float random = Random.Range(0,AmountToRandomlyOutput);
-		Debug.Log("random " +random);
+		float random = Random.Range(RangeToRandomlyOutput.x,RangeToRandomlyOutput.y);
+		//Debug.Log("random " +random);
 		for (int i = 0; i < random; i++)
 		{
-			output.Add(GameObjectList[Random.Range(0,GameObjectList.Count)]);
+			GameObject outputObj = GameObjectList[Random.Range(0,GameObjectList.Count)];
+			output.Add(outputObj);
+			IteratedGameObject.Invoke(outputObj);
                  
 		}
 		gameObjectListEvent.Invoke(output);

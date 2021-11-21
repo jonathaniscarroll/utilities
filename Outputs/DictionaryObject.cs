@@ -8,9 +8,15 @@ public class DictionaryObject : MonoBehaviour
 	private Dictionary<string,string> dictionary;
 	public Dictionary<string,string> Dictionary{
 		get{
+			if(dictionary==null){
+				dictionary = new Dictionary<string,string>();
+			}
 			return dictionary;
 		}
 		set{
+			if(dictionary==null){
+				dictionary = new Dictionary<string,string>();
+			}
 			dictionary = value;
 			OutputData.Invoke(dictionary);
 		}

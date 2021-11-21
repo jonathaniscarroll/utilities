@@ -15,6 +15,7 @@ public class StringListGameEventListener : MonoBehaviour
 		Event.UnRegisterListener(this);
 	}
 	public void OnEventRaised(List<string> input){
+		//Debug.Log("raised " + input.Count,gameObject);
 		Response.Invoke(input);
 	}
 }

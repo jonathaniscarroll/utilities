@@ -8,8 +8,11 @@ public class DictionaryObjectRuntimeSet : RuntimeSet<DictionaryObject>
 	public DictionaryObject DictionaryObjectPrefab;
 	public GameObjectEvent OutputGameObject;
 	public void InputDictionary(Dictionary<string,string> input){
-		DictionaryObject dictionaryObject = new DictionaryObject();
+		DictionaryObject dictionaryObject;
 		//if exists
+		if(!input.ContainsKey(CompareKey)){
+			return;
+		}
 		if(dictionaryObject = Items.Find(f => f.Dictionary[CompareKey] == input[CompareKey])){
 			//exists
 			
@@ -22,5 +25,13 @@ public class DictionaryObjectRuntimeSet : RuntimeSet<DictionaryObject>
 		OutputGameObject.Invoke(dictionaryObject.gameObject);
 		
 		
+	}
+	public GameObjectListEvent OutputGameObjectListEvent;
+	public void OutputAsGameObjectList(){
+		List<GameObject> Output = new List<GameObject>();
+		foreach(DictionaryObject dictObj in Items){
+			Output.Add(dictObj.gameObject);
+		}
+		OutputGameObjectListEvent.Invoke(Output);
 	}
 }

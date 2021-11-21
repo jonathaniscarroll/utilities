@@ -47,5 +47,12 @@ public class StringListVar : ScriptableObject
 		string output = Value[Random.Range(0,Value.Count)];
 		OutputRandomEvent.Invoke(output);
 	}
+	public void OutputList(){
+		//Debug.Log("output list");
+		StringListEvent.Invoke(Value);
+	}
+	public void ClearList(){
+		Value = new List<string>();
+	}
 	
 }

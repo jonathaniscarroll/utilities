@@ -16,10 +16,20 @@ public class IterateInt : MonoBehaviour
 		}
 	}
 	
+	[SerializeField]
+	private int max;
+	public int Max{
+		get{return max;}
+		set{max = value;}
+	}
+	
 	public IntEvent intEvent;
 	
 	public void Iterate(){
 		intEvent.Invoke(Current);
 		Current++;
+		if(Current>=Max){
+			Current = 0;
+		}
 	}
 }
