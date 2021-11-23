@@ -13,6 +13,7 @@ public class DictionaryObjectRuntimeSet : RuntimeSet<DictionaryObject>
 		if(!input.ContainsKey(CompareKey)){
 			return;
 		}
+		
 		if(dictionaryObject = Items.Find(f => f.Dictionary[CompareKey] == input[CompareKey])){
 			//exists
 			
@@ -23,7 +24,7 @@ public class DictionaryObjectRuntimeSet : RuntimeSet<DictionaryObject>
 		
 		dictionaryObject.Dictionary = input;
 		OutputGameObject.Invoke(dictionaryObject.gameObject);
-		
+		Debug.Log(input["InternName"],dictionaryObject.gameObject);
 		
 	}
 	public GameObjectListEvent OutputGameObjectListEvent;

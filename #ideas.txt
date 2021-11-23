@@ -1,0 +1,1 @@
+create a generic list var and list reference, inherit from that
