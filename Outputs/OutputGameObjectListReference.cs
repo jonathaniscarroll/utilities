@@ -15,6 +15,24 @@ public class OutputGameObjectListReference : MonoBehaviour
 	//}
 	//[SerializeField]
 	//private List<GameObject> _gameObjectListToOutput;
+	[SerializeField]
+	private int _iteratorInteger;
+	public int IteratorInteger{
+		get{
+			return _iteratorInteger;
+		} set{
+			_iteratorInteger = value;
+		}
+	}
+	public void Iterate(){
+		if(IteratorInteger<GameObjectListToOutput.Value.Count){
+			GameObject output = GameObjectListToOutput.Value[IteratorInteger];
+			GameObjectEvent.Invoke(output);
+			IteratorInteger++;
+		} else {
+			IteratorInteger = 0;
+		}
+	}
 	
 	public GameObjectListEvent GameObjectListEvent;
 	public GameObjectEvent GameObjectEvent;
@@ -25,6 +43,17 @@ public class OutputGameObjectListReference : MonoBehaviour
 	public void Set(List<GameObject> input){
 		GameObjectListToOutput.Value = input;
 	}
+	public void Find(string objectName){
+		GameObject output = GameObjectListToOutput.Value.Find(obj=>obj.name==objectName);
+		GameObjectEvent.Invoke(output);
+	}
+	public void IterateAll(){
+		while(IteratorInteger<GameObjectListToOutput.Value.Count){
+			GameObject output = GameObjectListToOutput.Value[IteratorInteger];
+			GameObjectEvent.Invoke(output);
+			IteratorInteger++;
+		}
+	}
 	
-	//public 
+	
 }

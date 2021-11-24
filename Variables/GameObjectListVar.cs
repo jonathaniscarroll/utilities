@@ -15,15 +15,15 @@ public class GameObjectListVar : ScriptableObject
 			ListEvent.Invoke(_value);
 		}
 	}
-	[SerializeField]
-	private int _iteratorInteger;
-	public int IteratorInteger{
-		get{
-			return _iteratorInteger;
-		} set{
-			_iteratorInteger = value;
-		}
-	}
+	//[SerializeField]
+	//private int _iteratorInteger;
+	//public int IteratorInteger{
+	//	get{
+	//		return _iteratorInteger;
+	//	} set{
+	//		_iteratorInteger = value;
+	//	}
+	//}
 	
 	public GameObjectListEvent ListEvent;
 	public GameObjectEvent IterateListOutput;
@@ -32,15 +32,15 @@ public class GameObjectListVar : ScriptableObject
 		Value.Add(input);
 	}
 	
-	public void Iterate(){
-		if(IteratorInteger<Value.Count){
-			GameObject output = Value[IteratorInteger];
-			IterateListOutput.Invoke(output);
-			IteratorInteger++;
-		} else {
-			IteratorInteger = 0;
-		}
-	}
+	//public void Iterate(){
+	//	if(IteratorInteger<Value.Count){
+	//		GameObject output = Value[IteratorInteger];
+	//		IterateListOutput.Invoke(output);
+	//		IteratorInteger++;
+	//	} else {
+	//		IteratorInteger = 0;
+	//	}
+	//}
 	
 	public GameObjectEvent OutputRandomEvent;
 	public void OutputRandom(){
