@@ -8,13 +8,21 @@ public class CubicleObjectUI : ObjectUI<CubicleObject>
 	public void InputGameObject(GameObject input){
 		CubicleObject output = null;
 		if(output = input.GetComponent<CubicleObject>()){
-			Output.Invoke(output);
+			ThisObject = output;
 		}
 	}
-	
-	
-	//public void Generate(CubicleObject input){
-	//	CubicleObjectUI output = Instantiate(Prefab,Parent);
-		
-	//}
+	public SpriteEvent OutputSpriteEvent;
+	public void OutputSprite(){
+		Sprite output = ThisObject.SpriteRenderer.sprite;
+		OutputSpriteEvent.Invoke(output);
+	}
+	public StringEvent OutputNameEvent;
+	public void OutputName(){
+		string output = ThisObject.Name;
+		OutputNameEvent.Invoke(output);
+	}
+	public IntEvent OutputValueEvent;
+	public void OutputValue(){
+		OutputValueEvent.Invoke(ThisObject.Value);
+	}
 }

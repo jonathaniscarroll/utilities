@@ -7,6 +7,12 @@ public class GameObjectPool : MonoBehaviour
 {
 	public bool InstantiateObjects = false;
 	public List<GameObject> Pool;
+	public Transform Parent{
+		get{return parent;}
+		set{parent = value;}
+	}
+	[SerializeField]
+	private Transform parent;
 	public GameObjectEvent OutputPooledObject;
 	
 	public void InputGameObject(GameObject input){
@@ -14,14 +20,16 @@ public class GameObjectPool : MonoBehaviour
 		if(Pool==null){
 			Pool = new List<GameObject>();
 		}
-		if(output = Pool.FirstOrDefault(i => GameObject.ReferenceEquals(i,input))){
+		if(output = Pool.FirstOrDefault(i => i.name== input.name)){
 			//object already in pool
+			//Debug.Log("in pool");
 		} else{
 			if(InstantiateObjects){
-				output = Instantiate(input);
+				output = Instantiate(input,Parent.position+input.transform.position,Parent.rotation,Parent);
 			} else{
 				output = input;
 			}
+			output.name = input.name;
 			Pool.Add(output);
 		}
 		OutputPooledObject.Invoke(output);

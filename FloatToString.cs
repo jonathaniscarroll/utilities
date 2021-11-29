@@ -15,4 +15,8 @@ public class FloatToString : MonoBehaviour
 		string str = prepend + input.ToString() + append;
 		stringEvent.Invoke(str);
 	}
+	public void IntInput(int input){
+		string str = prepend + input.ToString() + append;
+		stringEvent.Invoke(str);
+	}
 }

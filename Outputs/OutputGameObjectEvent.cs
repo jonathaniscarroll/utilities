@@ -19,7 +19,7 @@ public class OutputGameObjectEvent : MonoBehaviour
 	
 	public void Output(){
 		
-		GameObjectEvent.Invoke(GameObjectToOutput);
+		GameObjectEvent?.Invoke(GameObjectToOutput);
 	}
 	public void Set(GameObject input){
 		GameObjectToOutput = input;
