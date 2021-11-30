@@ -20,6 +20,7 @@ public class GameObjectPool : MonoBehaviour
 		if(Pool==null){
 			Pool = new List<GameObject>();
 		}
+		Debug.Log(input,gameObject);
 		if(output = Pool.FirstOrDefault(i => i.name== input.name)){
 			//object already in pool
 			//Debug.Log("in pool");
