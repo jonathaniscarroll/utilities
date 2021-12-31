@@ -30,5 +30,8 @@ public class StringVar : ScriptableObject
 			Value = InitialValue;
 		}
 	}
+	public void Output(){
+		OnChange.Invoke(Value);
+	}
 	
 }

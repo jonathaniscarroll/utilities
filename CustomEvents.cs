@@ -132,3 +132,5 @@ public class SpriteEvent:UnityEvent<Sprite>{}
 public class AnimatorControllerEvent:UnityEvent<RuntimeAnimatorController>{}
 [System.Serializable]
 public class ScriptableObjectEvent:UnityEvent<ScriptableObject>{}
+[System.Serializable]
+public class SpriteListEvent:UnityEvent<List<Sprite>>{}

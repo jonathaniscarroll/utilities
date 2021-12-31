@@ -45,8 +45,9 @@ public class OutputGameObjectListReference : MonoBehaviour
 	}
 	public void Find(string objectName){
 		GameObject output = GameObjectListToOutput.Value.Find(obj=>obj.name==objectName);
+		Debug.Log("name " + objectName,gameObject);
 		if(output!=null){
-			//Debug.Log("name " + objectName,gameObject);
+			
 			GameObjectEvent?.Invoke(output);	
 		}
 		

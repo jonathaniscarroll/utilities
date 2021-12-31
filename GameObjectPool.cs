@@ -23,10 +23,10 @@ public class GameObjectPool : MonoBehaviour
 		Debug.Log(input,gameObject);
 		if(output = Pool.FirstOrDefault(i => i.name== input.name)){
 			//object already in pool
-			//Debug.Log("in pool");
+			Debug.Log("in pool",gameObject);
 		} else{
 			if(InstantiateObjects){
-				output = Instantiate(input,Parent.position+input.transform.position,Parent.rotation,Parent);
+				output = Instantiate(input,Parent.position,Parent.rotation,Parent);
 			} else{
 				output = input;
 			}

@@ -6,7 +6,10 @@ public class ToggleGameObject : GameObjectFunction
 {
 	public bool stateToSet;
 	public override void TriggerFunction(GameObject gameObject){
-		if(gameObject!=null)
-		gameObject.SetActive(stateToSet);
+		if(gameObject!=null){
+			gameObject.SetActive(stateToSet);
+			//Debug.Log("setting " + gameObject + " to " + stateToSet,gameObject);
+		}
+		
 	}
 }
