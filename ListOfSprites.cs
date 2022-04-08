@@ -26,4 +26,8 @@ public class ListOfSprites : MonoBehaviour
 			OutputSprite.Invoke(output);
 		}
 	}
+	public SpriteListEvent OutputListEvent;
+	public void OutputList(){
+		OutputListEvent.Invoke(Sprites);
+	}
 }
